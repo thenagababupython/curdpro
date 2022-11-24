@@ -1,0 +1,71 @@
+<html>
+<head>
+    <title>RETRIVE DATA</title>
+     <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    th,td{
+        padding: 10px 20px;
+        font-size: 20px;
+        text-align: center;
+    }
+a{
+    margin-left: 100px;
+    font-size: 30px;
+    color: lightgoldenrodyellow;
+
+}
+ button{
+    margin-right: 20px;
+    margin-top: 30px;
+    text-shadow: 0 0 20px deeppink;
+    text-decoration-skip-ink: auto;
+}
+
+
+</style>
+<body>
+<center>
+<a href="/create/"><button type="button" class="btn btn-primary btn-lg">CREATE</button></a>
+<a href="/retrive/"><button type="button" class="btn btn-success btn-lg">RETRIVE</button></a>
+<a href="/update/"><button type="button" class="btn btn-warning btn-lg">UPDATE</button></a>
+<a href="/delete/"><button type="button" class="btn btn-secondary btn-lg">DELETE</button></a>
+</center>
+
+
+{% if products %}
+    <h2 style="text-align: center">Product Data</h2>
+    <center>
+ <table border="2px">
+    <thead>
+<tr style="color: red;background-color: cyan">
+    <th>productda id</th>
+    <th>productda name</th>
+    <th>productda cost</th>
+    <th>productda color</th>
+    <th>productda class</th>
+</tr>
+</thead>
+    {% for i in products %}
+        <tbody style="background-color: aqua">
+        <tr>
+            <th>{{ i.product_id }}</th>
+            <th>{{ i.product_name }}</th>
+            <th>{{ i.product_cost }}</th>
+            <th>{{ i.product_color }}</th>
+            <th>{{ i.product_class }}</th>
+        </tr>
+        </tbody>
+    {% endfor %}
+ </table>
+    </center>
+{% else %}
+    <h2>Product data not avilable</h2>
+{% endif %}
+</body>
+</html>
